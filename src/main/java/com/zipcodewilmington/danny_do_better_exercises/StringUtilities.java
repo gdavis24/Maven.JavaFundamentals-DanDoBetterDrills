@@ -83,7 +83,17 @@ public class StringUtilities {
      */
     public static Character getMiddleCharacter(String inputValue){
 
-        return null;
+        char[] chars = inputValue.toCharArray();
+        if (chars.length % 2 == 0) {
+            char middle = chars[chars.length / 2 - 1];
+            return  middle;
+        }
+        else {
+            char middle = chars[chars.length / 2];
+            return middle;
+
+        }
+
     }
 
     /**
@@ -91,8 +101,14 @@ public class StringUtilities {
      * @return the first sequence of characters
      */
     public static String getFirstWord(String spaceDelimitedString){
+        int index = spaceDelimitedString.indexOf(' ');
+        if (index > -1){
+            return spaceDelimitedString.substring(0, index).trim();
+        }
+        else{
+            return spaceDelimitedString;
+        }
 
-        return null;
     }
 
     /**
@@ -101,7 +117,9 @@ public class StringUtilities {
      */
     public static String getSecondWord(String spaceDelimitedString){
 
-        return null;
+        String[] secondWord = spaceDelimitedString.split(" ");
+        String whatever = secondWord[1];
+        return whatever;
     }
 
     /**
@@ -110,6 +128,11 @@ public class StringUtilities {
      */
     public static String reverse(String stringToReverse){
 
-        return null;
+        String output = "";
+        for (int i = stringToReverse.length() - 1; i >= 0; i--) {
+            output = output + stringToReverse.charAt(i);
+        }
+
+        return output;
     }
 }
